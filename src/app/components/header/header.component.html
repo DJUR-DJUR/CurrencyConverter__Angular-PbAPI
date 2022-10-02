@@ -1,0 +1,12 @@
+<div class="header-wrap">
+  <div class="header" *ngIf="currencies; else loading">
+    <div class="header-row" *ngFor="let item of currencies">
+      <div class="header-item">{{item.ccy}}/{{item.base_ccy}}:</div>
+      <div class="header-item">{{item.buy}}</div>
+      <div class="header-item">{{item.sale}}</div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="header-loader">Loading...</div>
+</ng-template>

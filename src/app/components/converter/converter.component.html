@@ -1,0 +1,39 @@
+<div class="form-wrap">
+  <form class="fieldset" [formGroup]="form" *ngIf="currencies; else loading">
+    <div class="container">
+      <div class="form-control">
+        <label>Amount</label>
+        <input type="number" min="0" formControlName="fromAmount" [value]="fromAmount" (input)="fromAmountChange()">
+      </div>
+      <div class="form-control">
+        <label>From</label>
+        <select formControlName="fromCurrency" (change)="fromAmountChange()">
+          <option *ngFor="let curr of currencies" [value]="curr.ccy">{{curr.ccy}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="form-control">
+        <label>Amount</label>
+        <input type="number" min="0" formControlName="toAmount" [value]="toAmount" (input)="toAmountChange()">
+      </div>
+      <div class="form-control">
+        <label>To</label>
+        <select formControlName="toCurrency" (change)="fromAmountChange()">
+          <option *ngFor="let curr of currencies" [value]="curr.ccy">{{curr.ccy}}</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #loading>
+  <div class="wrap-loader">
+    <div class="loader-container">
+      <div class="loader-block"></div>
+      <div class="loader-block"></div>
+      <div class="loader-block"></div>
+      <div class="loader-block"></div>
+    </div>
+  </div>
+</ng-template>
